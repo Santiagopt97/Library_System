@@ -15,12 +15,16 @@ namespace Library_System.Models
         public int Id { get; set; }
 
         [Column("name")] //Column("Nombre de la tabla en la base de datos")
+        [MaxLength(50, ErrorMessage = "el campo no debe tener mas de 50 caracteres")] //da el tamaño maximo de caracteres y el mesaje de error
         public required string Name { get; set; } //required es para que el campo sea requerido
 
         [Column("abbreviation")]
+        [MinLength(2, ErrorMessage = "El campo debe tener minimo 2 caracteres")] // este da el minimo de caracteres
+        [MaxLength(10, ErrorMessage = "el campo no debe tener mas de 10 caracteres")]
         public required string Abbreviation { get; set; }
 
         [Column("description")]
+        [MaxLength(500, ErrorMessage = "el campo no debe tener mas de 500 caracteres")]
         public string Description { get; set; }
 
     }
