@@ -8,11 +8,11 @@ var builder = WebApplication.CreateBuilder(args);
 Env.Load();
 var dbHost = Environment.GetEnvironmentVariable("DB_HOST");
 var dbPort = Environment.GetEnvironmentVariable("DB_PORT");
-var dbName = Environment.GetEnvironmentVariable("DB_NAME");
+var dbDatabase = Environment.GetEnvironmentVariable("DB_NAME");
 var dbUserName = Environment.GetEnvironmentVariable("DB_USERNAME");
 var dbPassword = Environment.GetEnvironmentVariable("DB_PASSWORD");
 
-var mySqlConection = $"server={dbHost};port={dbPort};database={dbName};uid={dbUserName};password={dbPassword}";
+var mySqlConection = $"server={dbHost};port={dbPort};database={dbDatabase};uid={dbUserName};password={dbPassword}";
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
